@@ -8,4 +8,4 @@ groups:
           severity: critical
         annotations:
           summary: "CRITICAL: Kafka Consumer detected a poison pill."
-          description: "The rate of bad messages in the 'marks' topic has increased. Check the 'marks_dlq' topic for details in Kafka."
+          description: "Bad messages detected in 'marks' topic. Check 'marks_dlq' topic in Kafka."
