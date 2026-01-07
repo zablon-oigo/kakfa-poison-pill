@@ -1,0 +1,11 @@
+groups:
+  - name: consumer_alerts
+    rules:
+      - alert: PoisonPillDetected
+        expr: rate(poison_pills_total[1m]) > 0
+        for: 0m
+        labels:
+          severity: critical
+        annotations:
+          summary: "CRITICAL: Kafka Consumer detected a poison pill."
+          description: "The rate of bad messages in the 'marks' topic has increased. Check the 'marks_dlq' topic for details in Kafka."
