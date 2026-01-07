@@ -1,0 +1,27 @@
+global:
+  smtp_smarthost: 'smtp.gmail.com:587' 
+  smtp_from: ''  # Senders Email Address
+  smtp_auth_username: '' # Email Username
+  smtp_auth_password: '' # Email Password
+  smtp_require_tls: true 
+
+route:
+  receiver: 'kafka-alert-email' 
+
+receivers:
+  - name: 'kafka-alert-email'
+    email_configs:
+      - to: '' # Receiver Email address
+        send_resolved: true 
+        subject: '{{ .Status | toUpper }}: Kafka Poison Pill Alert'
+        html: |
+          <h2>{{ .Status | toUpper }} Alert: {{ .CommonLabels.alertname }}</h2>
+          <p><strong>Instance:</strong> {{ .CommonLabels.instance }}</p>
+          <p><strong>Severity:</strong> {{ .CommonLabels.severity }}</p>
+          <h3>Details:</h3>
+          <ul>
+            {{ range .Alerts }}
+            <li>{{ .Annotations.description }}</li>
+            <li><strong>Starts At:</strong> {{ .StartsAt }}</li>
+            {{ end }}
+          </ul>
