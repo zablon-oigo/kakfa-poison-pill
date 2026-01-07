@@ -1,0 +1,9 @@
+  - job_name: 'kafka-consumer'
+    static_configs:
+      - targets: ['localhost:9200']  
+    rule_files:
+      - "alerting_rules.yml" 
+    alerting:
+      alertmanagers:
+        - static_configs:
+            - targets: ['localhost:9093']
