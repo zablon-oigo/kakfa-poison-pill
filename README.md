@@ -8,6 +8,8 @@ It showcases how to keep your consumers resilient while providing:
 - Dead Letter Queue (DLQ) handling
 
 #### Archictecture Diagram
+<img width="1201" height="361" alt="prometheus drawio" src="https://github.com/user-attachments/assets/b8c5458e-21ef-4e0e-99b8-75c9f7aaf40d" />
+
 
 #### Prequisites
 Before running the project , ensure you have the following installed:
