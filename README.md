@@ -117,7 +117,7 @@ http POST http://loclahost:8000/marks id=10 score="50"
 ```
 3.Send data again
 ```bash
-http POST http://localhost:8000/marks id=11 score=77
+http POST http://localhost:8000/marks id=11 score="pass"
 ```
 Result: consumer crashes due to poison pill.
 
@@ -132,7 +132,7 @@ http POST http://loclahost:8000/marks id=12 score="60"
 ```
 2.Send data again
 ```bash
-http POST http://loclahost:8000/marks id=14 score=80
+http POST http://loclahost:8000/marks id=14 score="test"
 ```
 Result:
 - App continues processing.
